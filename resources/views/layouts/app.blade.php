@@ -9,72 +9,56 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+ <link href="img/favicon.png" rel="icon">
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
+    <!-- font awesome -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/font-awesome.min.css') }}">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/bootstrap.min.css') }}">
+
+    <!--font google-->
+    <link href="https://fonts.googleapis.com/css?family=Cairo:400,700" rel="stylesheet">
+
+    <!--google font-->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap" rel="stylesheet">
+
+    <!-- vendor min  css -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/vendor.min.css') }}">
+
+    <!-- min styles -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/min.min.css') }}">
+
+    <!-- font arbic -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    @if (app()->getLocale() == 'ar')
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/bootstrap-rtl/css/bootstrap-rtl.css') }}">
+        
+        <link rel="stylesheet" href="{{ asset('dashboard_files/css/font-awesome.min.css') }}">
+    @else
+
+            <!-- font awesome -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/font-awesome.min.css') }}">
+
+        <!-- Bootstrap -->
+        <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/bootstrap.min.css') }}">
+            
+    @endif
+
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+ @yield('content')
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
+ <script src="{{ asset('dist/js/jquery-3.3.1.min.js') }}"></script>
 
-                    </ul>
+<!-- bootstrap -->
+<script src="{{ asset('dist/js/bootstrap.min.js') }}"></script>
 
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+<!-- vendor  js -->
+<script src="{{ asset('dist/js/vendor.min.js') }}"></script>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
 </body>
 </html>

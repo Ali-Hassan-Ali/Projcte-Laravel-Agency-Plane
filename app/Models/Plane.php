@@ -8,9 +8,16 @@ class Plane extends Model
 {
     public $guarded = [];
 
-        public function company()
+    public function company()
     {
         return $this->belongsTo(Company::class);
 
     }//end fo company
-}
+
+    public function reservation()
+    {
+        return $this->belongsTo(Reservation::class);
+
+    }//end fo plane
+
+}//end of Plane

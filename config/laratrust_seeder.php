@@ -17,6 +17,7 @@ return [
             'users' => 'c,r,u,d',
             'companys' => 'c,r,u,d',
             'planes' => 'c,r,u,d',
+            'reservations' => 'c,r,u,d',
         ],
 
         'admin' => []

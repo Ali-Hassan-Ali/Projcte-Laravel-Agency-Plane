@@ -15,6 +15,10 @@ class PlaneController extends Controller
         $planes = Plane::when($request->search, function($q) use ($request){
 
             return $q->where('name', 'like', '%' . $request->search . '%')
+                ->orWhere('Seats', 'like', '%' . $request->search . '%')
+                ->orWhere('ticketprice', 'like', '%' . $request->search . '%')
+                ->orWhere('timetrip', 'like', '%' . $request->search . '%')
+                ->orWhere('company_id', 'like', '%' . $request->search . '%')
                 ->orWhere('trip', 'like', '%' . $request->search . '%');
 
         })->latest()->paginate(5);

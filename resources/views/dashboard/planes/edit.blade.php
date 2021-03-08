@@ -62,7 +62,7 @@
                             <label>@lang('lang.company_id')</label>
                             <select name="company_id" class="form-control">
                                 @foreach ($companys as $company)
-                                    <<option value="{{ $company->id }}" {{ $company->company_id == $company->id ? 'selected' : '' }}>{{ $company->name }}</option>
+                                    <<option value="{{ $company->id }}" {{ $plane->company_id == $company->id ? 'selected' : '' }}>{{ $company->name }}</option>
                                 @endforeach
                             </select>
                         </div>

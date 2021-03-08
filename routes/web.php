@@ -11,8 +11,27 @@ Route::group(
 
 
 	Route::get('/', function () {
-	    return ('testing');
+	    return view('home.welcome');
 	});
+
+	Route::get('/login', function () {
+	    return view('aurh.login');
+	});
+
+	Route::get('/register', function () {
+	    return view('auth.register');
+	});	
+
+	Route::get('/RememberRequest', function () {
+	    return view('home.RememberRequest');
+	});	
+
+	Route::get('/CustomersService', function () {
+	    return view('home.CustomersService');
+	});	
+
+	//user routes
+    Route::resource('reservations', 'AddRequestController');
 
 	Auth::routes();
 

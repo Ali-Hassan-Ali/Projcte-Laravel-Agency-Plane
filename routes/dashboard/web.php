@@ -17,7 +17,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
             //plans routes
             Route::resource('planes', 'PlaneController')->except(['show']);
 
+            //plans routes
+            Route::resource('reservations', 'ReservationsController');
+
         });//end of dashboard routes
-    });
+        
+    });//end of Route Mcmara Pakegs
 
 

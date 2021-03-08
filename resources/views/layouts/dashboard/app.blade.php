@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="{{ asset('dashboard_files/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dashboard_files/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dashboard_files/css/skin-blue.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('dashboard_files/dropzone/dropzone.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.4/css/fileinput.min.css"
+    integrity="sha512-iPac4HfczXMa0qW1F34D91WysfdyjgbvopGdZcW0IlTwxgfLrFmxnQFThIASKs72aAHm5WVODsZZMrx+tgE+iw=="
+    crossorigin="anonymous" />
 
     @if (app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{ asset('dashboard_files/css/font-awesome-rtl.min.css') }}">
@@ -25,6 +29,8 @@
         </style>
     @else
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Oxygen&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('dashboard_files/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('dashboard_files/css/AdminLTE.min.css') }}">
     @endif
@@ -121,7 +127,7 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="{{ asset('dashboard_files/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                                                <img src="{{ auth()->user()->image_path }}" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 Support Team
@@ -187,14 +193,14 @@
                     <li class="dropdown user user-menu">
 
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="{{ asset('dashboard_files/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
+                            <img src="{{ auth()->user()->image_path }}" class="user-image" alt="User Image">
                             <span class="hidden-xs">{{ auth()->user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
 
                             {{--<!-- User image -->--}}
                             <li class="user-header">
-                                <img src="{{ asset('dashboard_files/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                                <img src="{{ auth()->user()->image_path }}" class="img-circle" alt="User Image">
 
                                 <p>
                                     {{ auth()->user()->name }}
@@ -207,7 +213,7 @@
 
 
                                 <a href="{{ route('logout') }}" class="btn btn-default btn-flat" onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">@lang('site.logout')</a>
+                                                 document.getElementById('logout-form').submit();">@lang('lang.logout')</a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
@@ -223,7 +229,7 @@
     </header>
 
     @include('layouts.dashboard._aside')
-    
+
     @yield('content')
 
     @include('partials._session')
@@ -267,6 +273,18 @@
 {{--custom js--}}
 <script src="{{ asset('dashboard_files/js/custom/image_preview.js') }}"></script>
 <script src="{{ asset('dashboard_files/js/custom/order.js') }}"></script>
+<script src="{{ asset('dashboard_files/dropzone/dropzone.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.4/js/fileinput.min.js"
+integrity="sha512-yLD+PqEyjv+TMfhD9sJ2c7hEp10omIrUgEJm+m68/ryVFZJtcQubBNClRmBHqAfiYQfciHQQEAWyTLy5NnrRVw=="
+crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.4/themes/fa/theme.min.js"
+integrity="sha512-IGzv0PSObEE/ZloJbAyiN5qSNPwKVOaoivCuGbmX2kMsK9zsg32yFxbo1waEC8j7WFQRuSDI8AH8mJOEn0riYQ=="
+crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.11/paper-full.min.js"
+integrity="sha512-ehNJ9gpOQJn8EYlA3P1zUtfrh97G/6WNsjfPfpnMxbo6PX6UXHRj8Ny5MCd36w2eTPlvOSVuXLZmY+/VLVhI4A=="
+crossorigin="anonymous"></script>
 
 <script>
     $(document).ready(function () {
@@ -323,7 +341,7 @@
         CKEDITOR.config.language =  "{{ app()->getLocale() }}";
 
     });//end of ready
-    
+
 </script>
 @stack('scripts')
 </body>

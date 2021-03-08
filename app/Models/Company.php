@@ -13,4 +13,5 @@ class Company extends Model
         return $this->hasMany(Plane::class);
 
     }//end fo plane
-}
+
+}//end of model
