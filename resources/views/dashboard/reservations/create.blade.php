@@ -38,25 +38,6 @@
                     </div>
 
                     <div class="form-group">
-                        <label>@lang('lang.phone')</label>
-                        <input type="number" name="phone" class="form-control" value="{{ old('phone') }}">
-                    </div>
-
-                    <div class="form-group">
-                        <label>@lang('lang.count')</label>
-                        <input type="number" name="count" class="form-control" value="{{ old('count') }}">
-                    </div>
-
-                    <div class="form-group">
-                        <label>@lang('lang.trip')</label>
-                        <select name="plane_id" class="form-control">
-                            @foreach ($planes as $plane)
-                                <option value="{{ $plane->id }}" {{ old('plane_id') == $plane->id ? 'selected' : '' }}>{{ $plane->trip }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-
-                    <div class="form-group">
                         <label>@lang('lang.documents')</label>
                         <input type="file" id="file-1" name="documents[]" class="file" multiple class="file"
                         data-overwrite-initial="false" >

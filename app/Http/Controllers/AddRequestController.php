@@ -34,27 +34,63 @@ class AddRequestController extends Controller
 
     public function store(Request $request)
     {
-      $request_data = $request->except(['documents']);
-      $request_data = $request->all();
-      $request_data = array_filter($request->documents);
-       //dd($request_data);
+     
+     // dd($request->all());
+        $array = [];
+        if($request->has('Files')){
+            foreach ($request['Files'] as  $file) {
+
+                $logo = time()+rand(0,99) . '.' . $file->extension();
+                $file->move(('images').'/' . date('d-m-Y'), $logo);
+                array_push($array,'/images/'.date('d-m-Y').'/' . $logo);
+               // $request['image'] = ;
+
+            }
+           
+
+        }else{
+            $store = Null;
+        }
         
+        $store   = json_encode($array);
+        $recover = json_decode($store ,true);
+        $request['documents'] = $store;
 
-        if ($request->documents) {
+        //$save = Reservation::create($request->all());
+  //dd($request->all(),$save);      
 
-            foreach ($request->documents as $image) {
-               Image::make($image)
-                ->resize(300, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save(public_path('uploads/user_images/' . $image->hashName())); 
-
-            }//end foreach
-        }//end if 
-
-    
-        test::create($request_data);
+            
+        Reservation::create($request->all());
         session()->flash('success', __('lang.added_successfully'));
         return redirect()->route('dashboard.reservations.index');
+        
+    // return redirect('mypage')->with('success', 'The record has been added succesfully!') ;
+
+
+
+
+
+
+
+
+
+
+
+
+      // $request_data = $request->except(['documents']);
+      // $request_data = array_filter($request->documents);
+
+      //   if ($request->documents) {
+
+      //       foreach ($request->documents as $image) {
+      //         $request_data = Image::make($image)
+      //           ->resize(300, null, function ($constraint) {
+      //               $constraint->aspectRatio();
+      //           })->save(public_path('uploads/reservation_images/' . $image->hashName())); 
+      //           $data[] = $request_data;
+      //       }//end foreach
+      //   }//end if 
+    
     }
 
 

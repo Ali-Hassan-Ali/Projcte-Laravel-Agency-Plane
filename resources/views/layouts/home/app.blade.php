@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html  dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
+<html dir="{{ LaravelLocalization::getCurrentLocaleDirection() }}">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,23 +31,24 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/min.min.css') }}">
 
     <!-- font arbic -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('file/fileinput.min.css') }}">
 
     @if (app()->getLocale() == 'ar')
 
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/bootstrap-rtl/css/bootstrap-rtl.css') }}">
-        
+
         <link rel="stylesheet" href="{{ asset('dashboard_files/css/font-awesome.min.css') }}">
     @else
 
-            <!-- font awesome -->
+    <!-- font awesome -->
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/font-awesome.min.css') }}">
 
         <!-- Bootstrap -->
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/bootstrap.min.css') }}">
-            
+
     @endif
 </head>
 <body>
@@ -56,7 +57,8 @@
 
     <nav class="navbar navbar-expand-lg navbar-light">
         <!--        <div class="text"> funnyText.js</div>-->
-        <a id="ali" class="navbar-brand text-white font-weight-bold pl-2 mySelector" style="font-size: 40px" href="/">@lang('lang.tbasheer')</a>
+        <a id="ali" class="navbar-brand text-white font-weight-bold pl-2 mySelector" style="font-size: 40px"
+           href="/">@lang('lang.tbasheer')</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +66,7 @@
         </button>
 
         <div class="collapse navbar-collapse col-auto " id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto ">
+            <ul class="navbar-nav m-auto ">
 
                 <li class="nav-item">
                     <a class="nav-link active wow bounceInUp" data-wow-duration="6s" href="/">@lang('lang.home') <span
@@ -82,7 +84,8 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link wow bounceInLeft" data-wow-duration="6s" href="#footer-newsletter">@lang('lang.on')<span
+                    <a class="nav-link wow bounceInLeft" data-wow-duration="6s"
+                       href="#footer-newsletter">@lang('lang.on')<span
                             class="sr-only">(current)</span></a>
                 </li>
 
@@ -93,28 +96,48 @@
                         @lang('lang.Language')
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                        <a rel="alternate" class="dropdown-item" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                        {{ $properties['native'] }}
-                        </a>
-                    @endforeach
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <a rel="alternate" class="dropdown-item" hreflang="{{ $localeCode }}"
+                               href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                {{ $properties['native'] }}
+                            </a>
+                        @endforeach
                     </div>
                 </li>
 
                 <li class="nav-item ">
-                    <a class="nav-link wow bounceInLeft" data-wow-duration="6s" href="#footer">@lang('lang.contactus')<span
+                    <a class="nav-link wow bounceInLeft" data-wow-duration="6s" href="#footer">@lang('lang.contactus')
+                        <span
                             class="sr-only">(current)</span></a>
                 </li>
 
             </ul>
             <ul class="navbar-nav ml-auto">
 
+                @auth
 
-                <a href="{{ route('login') }}" class="mr-3 btn btn-light wow bounceIn" data-wow-duration="6s"><i
-                        class="fa fa-user text"></i> @lang('lang.login')</a>
-                <a href="{{ route('register') }}" class="mr-3 btn btn-outline-light wow bounceIn" data-wow-duration="6s"><i
-                        class="fa fa-user-plus"></i>
-                    @lang('lang.register')</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ auth()->user()->name }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ route('dashboard.welcome') }}">@lang('lang.dashboard')</a>
+                            <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">@lang('lang.logout')</a>
+                         </div>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form> 
+                    </li>
+                @else
+                    <a href="{{ route('login') }}" class="mr-3 btn btn-light wow bounceIn" data-wow-duration="6s"><i
+                            class="fa fa-user text"></i> @lang('lang.login')</a>
+                    <a href="{{ route('register') }}" class="mr-3 btn btn-outline-light wow bounceIn"
+                       data-wow-duration="6s"><i
+                            class="fa fa-user-plus"></i>
+                        @lang('lang.register')</a>
+                @endauth
             </ul>
         </div>
     </nav><!--end of navbar-->
@@ -133,7 +156,8 @@
 
         <div class="row">
 
-            <div class="col-lg-6 col-md-6 wow bounceInLeft" data-wow-duration="4s"><h3><i class="fa fa-eye mr-2"></i>@lang('lang.tbasheer')</h3>
+            <div class="col-lg-6 col-md-6 wow bounceInLeft" data-wow-duration="4s"><h3><i
+                        class="fa fa-eye mr-2"></i>@lang('lang.tbasheer')</h3>
                 <p>@lang('lang.ser')</p>
             </div><!--end of col-->
 
@@ -142,8 +166,10 @@
                 <h4>@lang('lang.contactus')</h4>
                 <p>@lang('lang.sk')</p>
                 <p><i class="fa fa-map-marker mr-2"></i>@lang('lang.mns')<br>
-                    <strong><i class="fa fa-phone mr-2"></i> @lang('lang.Phone'):</strong> +249 0912905226 - +249123853358<br>
-                    <strong><i class="fa fa-envelope mr-2"></i> @lang('lang.Email'):</strong> strategic2020@gmail.com<br>
+                    <strong><i class="fa fa-phone mr-2"></i> @lang('lang.Phone'):</strong> +249 0912905226 -
+                    +249123853358<br>
+                    <strong><i class="fa fa-envelope mr-2"></i> @lang('lang.Email'):</strong>
+                    strategic2020@gmail.com<br>
                     <strong><i class="fa fa-whatsapp mr-2"></i> @lang('lang.Whatsapp'):</strong> +249 123853358<br><br>
                 </p>
 
@@ -160,7 +186,6 @@
     <a href="" class="text-white mr-2"><i class="fa fa-youtube-play fa-2x wow flip" data-wow-duration="5s"></i></a>
     <a href="" class="text-white mr-2"><i class="fa fa-twitter fa-2x wow flip" data-wow-duration="5s"></i></a>
 </section><!--end og mulite meduy-->
-
 
 
 <script src="{{ asset('dist/js/jquery-3.3.1.min.js') }}"></script>

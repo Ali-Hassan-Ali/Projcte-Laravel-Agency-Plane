@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Reservation extends Model
 {
     public $guarded = [];
+    protected $table= 'reservations';
+    protected $fillable = ['name','phone','count','documents','plane_id'];
 
     protected $casts = [
         'documents' => 'array'

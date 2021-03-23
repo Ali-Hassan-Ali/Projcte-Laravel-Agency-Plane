@@ -21,8 +21,30 @@
             {{ method_field('post') }}
 
             <div class="form-group">
+                <label>@lang('lang.name')</label>
+                <input type="text" name="name" class="form-control" value="{{ old('name') }}">
+            </div>
+
+            <div class="form-group">
+                <label>@lang('lang.phone')</label>
+                <input type="text" name="phone" class="form-control" value="{{ old('phone') }}">
+            </div>
+
+            <div class="form-group">
+                <label>@lang('lang.count')</label>
+                <input type="number" name="count" class="form-control" value="{{ old('count') }}">
+            </div>
+
+            <div class="form-group">
+                <label>@lang('lang.plane_id')</label>
+                <select name="plane_id" class="form-control" readonly checked>
+                    <option value="{{ $planes->id }}" readonly checked>{{ $planes->trip }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
                 <label>@lang('lang.documents')</label>
-                <input type="file" id="file-1" name="documents[]" class="file" multiple class="file"
+                <input type="file" id="file-1" name="Files[]" class="file" multiple class="file"
                 data-overwrite-initial="false" >
             </div>
 

@@ -18,7 +18,7 @@ class CreateReservationsTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->double('count');
-            $table->string('documents');
+            $table->text('documents');
 
             $table->bigInteger('plane_id')->unsigned();
             $table->foreign('plane_id')->references('id')->on('planes')->onDelete('cascade');

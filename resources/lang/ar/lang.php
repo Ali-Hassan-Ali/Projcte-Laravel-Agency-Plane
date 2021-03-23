@@ -72,7 +72,7 @@ return [
     'Phone' => 'الهاتف',
     'Email' => 'الاميل',
     'Whatsapp' => 'الواتس اب',
-    'throttle' => '',
+    'serviceservice' => 'الرحلات',
     'throttle' => '',
     'throttle'   => '',
 ];

@@ -45,6 +45,7 @@ return [
     'documents' => 'Documents',
     'plane_id' => 'Reservation',
     'phone' => 'Phone',
+    'serviceservice' => 'ٍerviceservice',
 
 
 

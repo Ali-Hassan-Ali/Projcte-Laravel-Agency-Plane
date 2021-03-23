@@ -56,7 +56,7 @@ class UserController extends Controller
             'permissions' => 'required|min:1'
         ]);
 
-        $request_data = $request->except(['password', 'password_confirmation', 'permissions', 'image']);
+        $request_data = $request->except(['password', 'password_confirmation', 'permissions', 'image']);        
         $request_data['password'] = bcrypt($request->password);
 
         if ($request->image) {

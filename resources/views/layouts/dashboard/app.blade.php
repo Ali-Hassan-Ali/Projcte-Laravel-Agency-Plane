@@ -10,10 +10,8 @@
     <link rel="stylesheet" href="{{ asset('dashboard_files/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dashboard_files/css/ionicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('dashboard_files/css/skin-blue.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('dashboard_files/dropzone/dropzone.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.4/css/fileinput.min.css"
-    integrity="sha512-iPac4HfczXMa0qW1F34D91WysfdyjgbvopGdZcW0IlTwxgfLrFmxnQFThIASKs72aAHm5WVODsZZMrx+tgE+iw=="
-    crossorigin="anonymous" />
+
+    <link rel="stylesheet" type="text/css" href="{{ asset('file/fileinput.min.css') }}">
 
     @if (app()->getLocale() == 'ar')
         <link rel="stylesheet" href="{{ asset('dashboard_files/css/font-awesome-rtl.min.css') }}">
@@ -273,18 +271,10 @@
 {{--custom js--}}
 <script src="{{ asset('dashboard_files/js/custom/image_preview.js') }}"></script>
 <script src="{{ asset('dashboard_files/js/custom/order.js') }}"></script>
-<script src="{{ asset('dashboard_files/dropzone/dropzone.js') }}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.4/js/fileinput.min.js"
-integrity="sha512-yLD+PqEyjv+TMfhD9sJ2c7hEp10omIrUgEJm+m68/ryVFZJtcQubBNClRmBHqAfiYQfciHQQEAWyTLy5NnrRVw=="
-crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/5.1.4/themes/fa/theme.min.js"
-integrity="sha512-IGzv0PSObEE/ZloJbAyiN5qSNPwKVOaoivCuGbmX2kMsK9zsg32yFxbo1waEC8j7WFQRuSDI8AH8mJOEn0riYQ=="
-crossorigin="anonymous"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.12.11/paper-full.min.js"
-integrity="sha512-ehNJ9gpOQJn8EYlA3P1zUtfrh97G/6WNsjfPfpnMxbo6PX6UXHRj8Ny5MCd36w2eTPlvOSVuXLZmY+/VLVhI4A=="
-crossorigin="anonymous"></script>
+<!-- file min scripts -->
+<script src="{{ asset('file/fileinput.min.js') }}"></script>
+<script src="{{ asset('file/theme.min.js') }}"></script>
+<script src="{{ asset('file/paper-full.min.js') }}"></script>
 
 <script>
     $(document).ready(function () {

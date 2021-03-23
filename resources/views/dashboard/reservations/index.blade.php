@@ -68,7 +68,9 @@
                                     <td>{{ $reservation->name }}</td>
                                     <td>{{ $reservation->count }}</td>
                                     <td>{{ $reservation->plane_id }}</td>
-                                    <td>{{ $reservation->documents }}</td>
+                                    <td>
+                                        <img src="{{'images/23-03-2021/'. $reservation->documents }}" style="width: 100px;" class="img-thumbnail" alt="">
+                                    </td>
                                     <td>
                                         @if (auth()->user()->hasPermission('reservations_update'))
                                             <a href="{{ route('dashboard.reservations.edit', $reservation->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('lang.edit')</a>
