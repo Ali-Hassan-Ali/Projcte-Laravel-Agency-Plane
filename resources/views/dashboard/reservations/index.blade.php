@@ -71,6 +71,10 @@
                                     <td>
                                         <img src="{{'images/23-03-2021/'. $reservation->documents }}" style="width: 100px;" class="img-thumbnail" alt="">
                                     </td>
+                                     <td> <?php foreach (json_decode($reservation->documents)as $document) { ?>
+                                         <img src="{{ asset($document) }}" style="height:120px; width:200px"/>
+                                        <?php } ?>
+                                    </td>
                                     <td>
                                         @if (auth()->user()->hasPermission('reservations_update'))
                                             <a href="{{ route('dashboard.reservations.edit', $reservation->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('lang.edit')</a>
