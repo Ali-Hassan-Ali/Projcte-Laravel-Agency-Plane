@@ -37,32 +37,61 @@ class ReservationsController extends Controller
 
     public function store(Request $request)
     {
-//        dd($request->all());
+       // dd($request->all());
 
-        $request->validate([
-            'name' => 'required',
-            'documents' => 'required',
-            'documents.*' => 'mimes:jpg,png,jpeg,gif,svg'
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        // ]);
 
-        $data = $request->except(['documents']);
 
-        if ($request->documents) {
+         // dd($request->all());
+          // dd($request->all());
+        $array = [];
+        if($request->has('Files')){
+            foreach ($request['Files'] as  $file) {
 
-            foreach ($request->documents as $key => $image) {
-                Image::make($image)
-                    ->resize(300, null, function ($constraint) {
-                        $constraint->aspectRatio();
-                    })->save(public_path('uploads/reservation_images/' . $image->hashName()));
+                $logo = time()+rand(0,99) . '.' . $file->extension();
+                $file->move(('images').'/' . date('d-m-Y'), $logo);
+                array_push($array,'/images/'.date('d-m-Y').'/' . $logo);
+               // $request['image'] = ;
 
-                $data[$key]['documents'] = $image->hashName();
-            }//end foreach
-        }//end if
-//        dd($data);
-        test::insert($data);
+            }
+           
 
+        }else{
+            $store = Null;
+        }
+        
+        $store   = json_encode($array);
+        // $recover = json_decode($store ,true);
+        // dd($recover,$store);      
+        $request['documents'] = $store;
+
+        //$save = Reservation::create($request->all());
+
+            
+        Reservation::create($request->all());
         session()->flash('success', __('lang.added_successfully'));
         return redirect()->route('dashboard.reservations.index');
+
+//         $data = $request->except(['documents']);
+
+//         if ($request->documents) {
+
+//             foreach ($request->documents as $key => $image) {
+//                 Image::make($image)
+//                     ->resize(300, null, function ($constraint) {
+//                         $constraint->aspectRatio();
+//                     })->save(public_path('uploads/reservation_images/' . $image->hashName()));
+
+//                 $data[$key]['documents'] = $image->hashName();
+//             }//end foreach
+//         }//end if
+// //        dd($data);
+//         test::insert($data);
+
+        // session()->flash('success', __('lang.added_successfully'));
+        // return redirect()->route('dashboard.reservations.index');
     }//end of store
 
 

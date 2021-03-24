@@ -15,6 +15,7 @@ return [
     'permissions'   => 'الصلاحيات',
 
     'add' => 'اضافه',
+    'added' => 'حجز',
     'edit' => 'تعديل',
     'delete' => 'حذف',
     'search' => 'البحث',

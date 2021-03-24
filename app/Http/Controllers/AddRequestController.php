@@ -62,7 +62,7 @@ class AddRequestController extends Controller
             
         Reservation::create($request->all());
         session()->flash('success', __('lang.added_successfully'));
-        return redirect()->route('dashboard.reservations.index');
+        return redirect()->route('reservations.index');
         
     // return redirect('mypage')->with('success', 'The record has been added succesfully!') ;
 
@@ -101,6 +101,13 @@ class AddRequestController extends Controller
     }
 
 
+    // public function edit(Reservation $reservation)
+    // {
+    //     return view('home.AddRequest.show');
+    // }
+
+
+
     public function edit(Reservation $reservation)
     {
         //
@@ -115,7 +122,7 @@ class AddRequestController extends Controller
 
     public function destroy(Reservation $reservation)
     {
-        //
+        dd($request->all());
     }
 
 }//end of controller

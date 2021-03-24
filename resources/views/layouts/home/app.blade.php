@@ -36,6 +36,10 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('file/fileinput.min.css') }}">
 
+    <!-- noty -->
+    <link rel="stylesheet" href="{{ asset('dashboard_files/plugins/noty/noty.css') }}">
+    <script src="{{ asset('dashboard_files/plugins/noty/noty.min.js') }}"></script>
+
     @if (app()->getLocale() == 'ar')
 
         <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/bootstrap-rtl/css/bootstrap-rtl.css') }}">
@@ -53,6 +57,9 @@
 </head>
 <body>
 
+
+
+
 <section id="banner">
 
     <nav class="navbar navbar-expand-lg navbar-light">
@@ -66,7 +73,7 @@
         </button>
 
         <div class="collapse navbar-collapse col-auto " id="navbarSupportedContent">
-            <ul class="navbar-nav m-auto ">
+            <ul class="navbar-nav m-auto">
 
                 <li class="nav-item">
                     <a class="nav-link active wow bounceInUp" data-wow-duration="6s" href="/">@lang('lang.home') <span
@@ -143,7 +150,7 @@
     </nav><!--end of navbar-->
 
 </section> <!--end of banner section-->
-
+@include('partials._session')
 
 @yield('content')
 

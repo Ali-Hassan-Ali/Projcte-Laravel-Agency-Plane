@@ -15,6 +15,7 @@ return [
     'permissions'   => 'Permissions',
 
     'add' => 'Add',
+    'added' => 'Added',
     'edit' => 'Edit',
     'delete' => 'Delete',
     'search' => 'Search',
@@ -45,7 +46,7 @@ return [
     'documents' => 'Documents',
     'plane_id' => 'Reservation',
     'phone' => 'Phone',
-    'serviceservice' => 'ٍerviceservice',
+    'serviceservice' => 'Srviceservice',
 
 
 

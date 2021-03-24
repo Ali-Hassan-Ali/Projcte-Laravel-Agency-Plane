@@ -55,8 +55,7 @@
                                 <th>#</th>
                                 <th>@lang('lang.name')</th>
                                 <th>@lang('lang.count')</th>
-                                <th>@lang('lang.plane_id')</th>
-                                <th>@lang('lang.documents')</th>
+                                <th>@lang('lang.trip')</th>
                                 <th>@lang('lang.action')</th>
                             </tr>
                             </thead>
@@ -67,12 +66,9 @@
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $reservation->name }}</td>
                                     <td>{{ $reservation->count }}</td>
-                                    <td>{{ $reservation->plane_id }}</td>
-                                    <td>
-                                        <img src="{{'images/23-03-2021/'. $reservation->documents }}" style="width: 100px;" class="img-thumbnail" alt="">
-                                    </td>
+                                    <td>{{ $reservation->plane->trip }}</td>
                                      <td> <?php foreach (json_decode($reservation->documents)as $document) { ?>
-                                         <img src="{{ asset($document) }}" style="height:120px; width:200px"/>
+                                         <img src="{{ asset($document) }}" style="height:40px; width:40px"/>
                                         <?php } ?>
                                     </td>
                                     <td>

@@ -7,8 +7,8 @@
       <h2 class="text-center pb-3">@lang('lang.serviceservice')</h2>
       <div class="text-center">
 
-        <a href="{{ route('reservations.create') }}" class="btn btn-info">
-            @lang('lang.add')
+        <a href="/" class="btn btn-info">
+            @lang('lang.home')
         </a>
 
       </div>
@@ -32,7 +32,7 @@
                 <tr>
                     <td>{{ $index + 1 }}</td>
                     <td>
-                        <a href="{{ route('reservations.show', $plane->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('lang.add')</a>
+                        <a href="{{ route('reservations.show', $plane->id) }}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> @lang('lang.added')</a>
                     </td>
                     <td>{{ $plane->trip }}</td>
                     <td>{{ $plane->ticketprice }}</td>

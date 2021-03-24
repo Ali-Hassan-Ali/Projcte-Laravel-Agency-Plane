@@ -16,7 +16,7 @@ class Reservation extends Model
 
     public function plane()
     {
-        return $this->hasMany(Plane::class);
+        return $this->belongsTo(Plane::class);
 
     }//end fo plane
 
