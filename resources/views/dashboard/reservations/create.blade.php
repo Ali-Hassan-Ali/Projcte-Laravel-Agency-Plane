@@ -43,6 +43,11 @@
                     </div>
 
                     <div class="form-group">
+                        <label>@lang('lang.guarded')</label>
+                        <input type="text" name="guarded" class="form-control" value="{{ old('guarded') }}">
+                    </div>
+
+                    <div class="form-group">
                         <label>@lang('lang.count')</label>
                         <input type="number" name="count" class="form-control" value="{{ old('count') }}">
                     </div>

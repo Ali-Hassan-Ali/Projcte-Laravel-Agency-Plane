@@ -39,16 +39,23 @@ class ReservationsController extends Controller
     {
        // dd($request->all());
 
-        // $request->validate([
-        //     'name' => 'required',
-        // ]);
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'count' => 'required',
+            'Files' => 'required',
+            'plane_id' => 'required',
+            'guarded' => 'required',
+        ]);
 
 
          // dd($request->all());
           // dd($request->all());
-        $array = [];
-        if($request->has('Files')){
-            foreach ($request['Files'] as  $file) {
+
+        try {
+                $array = [];
+                if($request->has('Files')){
+                    foreach ($request['Files'] as  $file) {
 
                 $logo = time()+rand(0,99) . '.' . $file->extension();
                 $file->move(('images').'/' . date('d-m-Y'), $logo);
@@ -73,6 +80,11 @@ class ReservationsController extends Controller
         Reservation::create($request->all());
         session()->flash('success', __('lang.added_successfully'));
         return redirect()->route('dashboard.reservations.index');
+
+
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }//end try
 
 //         $data = $request->except(['documents']);
 
@@ -112,9 +124,11 @@ class ReservationsController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'phone' => 'required',
             'count' => 'required',
-            'documents.0' => 'required',
-            'plane_id' => 'required'
+            'Files' => 'required',
+            'plane_id' => 'required',
+            'guarded' => 'required',
         ]);
 
         $reservation->update($request->all());

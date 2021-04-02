@@ -14,6 +14,7 @@
       </div>
 
       <div class="container">
+      @include('partials._errors')
           
       <form action="{{ route('reservations.store') }}" method="post" enctype="multipart/form-data">
 
@@ -33,6 +34,11 @@
             <div class="form-group">
                 <label>@lang('lang.count')</label>
                 <input type="number" name="count" class="form-control" value="{{ old('count') }}">
+            </div>
+
+            <div class="form-group">
+                <label>@lang('lang.guarded')</label>
+                <input type="text" name="guarded" class="form-control" value="{{ old('guarded') }}">
             </div>
 
             <div class="form-group">

@@ -18,6 +18,7 @@ class CreateReservationsTable extends Migration
             $table->string('name');
             $table->string('phone');
             $table->double('count');
+            $table->string('guarded');
             $table->text('documents');
 
             $table->bigInteger('plane_id')->unsigned();

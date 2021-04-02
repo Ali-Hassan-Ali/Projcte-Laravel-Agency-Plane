@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@lang('lang.tbasheer')</title>
 
     <!--Link Icon Title-->
     <link href="img/favicon.png" rel="icon">
@@ -63,7 +63,8 @@
 <section id="banner">
 
     <nav class="navbar navbar-expand-lg navbar-light">
-        <!--        <div class="text"> funnyText.js</div>-->
+        <div class="container">  
+                <!-- <div class="text"> funnyText.js</div> -->
         <a id="ali" class="navbar-brand text-white font-weight-bold pl-2 mySelector" style="font-size: 40px"
            href="/">@lang('lang.tbasheer')</a>
 
@@ -147,6 +148,7 @@
                 @endauth
             </ul>
         </div>
+        </div>
     </nav><!--end of navbar-->
 
 </section> <!--end of banner section-->
@@ -164,19 +166,19 @@
         <div class="row">
 
             <div class="col-lg-6 col-md-6 wow bounceInLeft" data-wow-duration="4s"><h3><i
-                        class="fa fa-eye mr-2"></i>@lang('lang.tbasheer')</h3>
-                <p>@lang('lang.ser')</p>
+                        class="fa fa-eye mr-2"></i> @lang('lang.tbasheer')</h3>
+                <p> @lang('lang.ser')</p>
             </div><!--end of col-->
 
 
             <div class="col-lg-6 col-md-6 footer-contact wow bounceInRight" data-wow-duration="4s">
                 <h4>@lang('lang.contactus')</h4>
                 <p>@lang('lang.sk')</p>
-                <p><i class="fa fa-map-marker mr-2"></i>@lang('lang.mns')<br>
+                <p><i class="fa fa-map-marker mr-2"></i> @lang('lang.mns')<br>
                     <strong><i class="fa fa-phone mr-2"></i> @lang('lang.Phone'):</strong> +249 0912905226 -
                     +249123853358<br>
                     <strong><i class="fa fa-envelope mr-2"></i> @lang('lang.Email'):</strong>
-                    strategic2020@gmail.com<br>
+                    tbasheer@gmail.com<br>
                     <strong><i class="fa fa-whatsapp mr-2"></i> @lang('lang.Whatsapp'):</strong> +249 123853358<br><br>
                 </p>
 

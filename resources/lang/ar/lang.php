@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'dashboard' => 'الرئسيه',
+    'dashboard' => 'لوحه التحكم',
     'users'   => 'المشرفين',
     'name'   => 'الاسم',
     'email'   => 'الاميل',
@@ -13,6 +13,7 @@ return [
     'AlreadyhaveAccount'   => 'اذا كان لديك حساب مسبقااا',
     'CreateNewAccount'   => 'اذا كان لديك حساب من قبل',
     'permissions'   => 'الصلاحيات',
+    'created_at'   => 'تاريخ الانشاء',
 
     'add' => 'اضافه',
     'added' => 'حجز',
@@ -74,6 +75,6 @@ return [
     'Email' => 'الاميل',
     'Whatsapp' => 'الواتس اب',
     'serviceservice' => 'الرحلات',
-    'throttle' => '',
+    'guarded' => 'نوع الرحله',
     'throttle'   => '',
 ];

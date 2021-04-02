@@ -13,6 +13,7 @@ return [
     'AlreadyhaveAccount'   => 'Already Have Account',
     'CreateNewAccount'   => 'Create New Account',
     'permissions'   => 'Permissions',
+    'created_at'   => 'created at',
 
     'add' => 'Add',
     'added' => 'Added',
@@ -80,7 +81,7 @@ return [
     'Email' => 'Service',
     'Whatsapp' => 'Service',
     
-    'service' => 'Service',
+    'guarded' => 'guard trip',
     'service' => 'Service',
     'service' => 'Service',
     'service' => 'Service',

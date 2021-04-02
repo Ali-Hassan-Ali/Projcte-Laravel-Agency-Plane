@@ -45,6 +45,7 @@
                 </div><!-- end of box header -->
 
                 <div class="box-body">
+                    @include('partials._errors')
 
                     @if ($reservations->count() > 0)
 
@@ -56,6 +57,9 @@
                                 <th>@lang('lang.name')</th>
                                 <th>@lang('lang.count')</th>
                                 <th>@lang('lang.trip')</th>
+                                <th>@lang('lang.guarded')</th>
+                                <th>@lang('lang.created_at')</th>
+                                <th>@lang('lang.image')</th>
                                 <th>@lang('lang.action')</th>
                             </tr>
                             </thead>
@@ -67,6 +71,8 @@
                                     <td>{{ $reservation->name }}</td>
                                     <td>{{ $reservation->count }}</td>
                                     <td>{{ $reservation->plane->trip }}</td>
+                                    <td>{{ $reservation->guarded }}</td>
+                                    <td>{{ $reservation->created_at }}</td>
                                      <td> <?php foreach (json_decode($reservation->documents)as $document) { ?>
                                          <img src="{{ asset($document) }}" style="height:40px; width:40px"/>
                                         <?php } ?>

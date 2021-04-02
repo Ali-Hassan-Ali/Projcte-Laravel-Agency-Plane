@@ -34,6 +34,16 @@ class AddRequestController extends Controller
 
     public function store(Request $request)
     {
+
+
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'count' => 'required',
+            'Files' => 'required',
+            'plane_id' => 'required',
+            'guarded' => 'required',
+        ]);
      
      // dd($request->all());
         $array = [];
@@ -44,9 +54,8 @@ class AddRequestController extends Controller
                 $file->move(('images').'/' . date('d-m-Y'), $logo);
                 array_push($array,'/images/'.date('d-m-Y').'/' . $logo);
                // $request['image'] = ;
-
             }
-           
+        
 
         }else{
             $store = Null;
@@ -55,10 +64,6 @@ class AddRequestController extends Controller
         $store   = json_encode($array);
         $recover = json_decode($store ,true);
         $request['documents'] = $store;
-
-        //$save = Reservation::create($request->all());
-  //dd($request->all(),$save);      
-
             
         Reservation::create($request->all());
         session()->flash('success', __('lang.added_successfully'));

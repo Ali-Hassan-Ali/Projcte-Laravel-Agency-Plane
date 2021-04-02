@@ -7,9 +7,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@lang('lang.tbasheer')</title>
 
- <link href="img/favicon.png" rel="icon">
+    <link href="img/favicon.png" rel="icon">
 
     <!-- font awesome -->
     <link rel="stylesheet" type="text/css" href="{{ asset('dist/css/font-awesome.min.css') }}">
